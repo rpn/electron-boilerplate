@@ -1,0 +1,41 @@
+{
+    // IntelliSense を使用して利用可能な属性を学べます。
+    // 既存の属性の説明をホバーして表示します。
+    // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Electron Main",
+            "program": "${workspaceFolder}\\app\\main.js",
+            "windows": {
+                "runtimeExecutable": "${workspaceFolder}/node_modules/electron/dist/electron.exe"
+            },
+            "env": {
+                "NODE_ENV": "development"
+            },
+            "protocol": "inspector",
+            "console": "internalConsole",
+            "cwd": "${workspaceRoot}"
+        },
+        {
+            "name": "Electron Renderer",
+            "type": "chrome",
+            "request": "launch",
+            "windows": {
+                "runtimeExecutable": "${workspaceFolder}/node_modules/electron/dist/electron.exe"
+            },
+            "env": {
+                "NODE_ENV": "development"
+            },
+            // Use the following for Windows
+            // "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd",
+            "runtimeArgs": [
+              "${workspaceRoot}/app/main.js",
+              "--remote-debugging-port=9222",
+            ],
+            "webRoot": "${workspaceRoot}"
+        }
+    ]
+}
